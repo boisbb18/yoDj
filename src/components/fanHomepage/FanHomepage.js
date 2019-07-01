@@ -44,8 +44,8 @@ class FanHomepage extends React.Component {
                     </div>
                     <div className="FanHomepage--djs-container">
                         {
-                            djs.map(dj => (
-                                <div className="FanHomepage--dj" key={dj.userId} onClick={() => this.selectEvent(dj,onlineDjs[dj.userId])}>
+                            djs.map((dj, index) => (
+                                <div className="FanHomepage--dj" key={index} onClick={() => this.selectEvent(dj,onlineDjs[dj.userId])}>
                                     <div className="FanHomepage--icon-container">
                                         <div className="FanHomepage--headset">
                                             <Icon classes={{root: `FanHomepage--headset-icon ${onlineDjs[dj.userId] ? 'FanHomepage--headset-online' : 'FanHomepage--headset-offline'}`}}>headset</Icon>

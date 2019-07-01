@@ -2,6 +2,7 @@ import React from 'react'
 import {BrowserRouter, Switch, Redirect, Route, withRouter} from 'react-router-dom'
 import firebase from 'firebase'
 import {MuiThemeProvider} from '@material-ui/core/styles'
+import axios from 'axios'
 import theme from 'src/config/CustomStyle'
 import HomePage from '../homepage'
 import LoginWrapper from '../loginWrapper'
@@ -538,18 +539,21 @@ class MainPage extends React.Component {
   }
 
   submitSongRequest(info) {
-    let {fanEvent, userId, userInfo} = this.state
-    let now = new Date().getTime()
-    let request = {...info, user: userId, time: now}
-    let myRef = firebase.database().ref(`venues/${fanEvent.fanId}/requests`)
-    let key = myRef.push().key
-    request.requestId = key
-    myRef.child(`/${key}`).set(request)
-    firebase.database().ref(`users/${userId}/venue/requests/${key}`).set(true, error => {
-      if (!error) {
-        console.log('Its added to firebase')
-      }
-    })
+    // let {fanEvent, userId, userInfo} = this.state
+    // let now = new Date().getTime()
+    // let request = {...info, user: userId, time: now}
+    // let myRef = firebase.database().ref(`venues/${fanEvent.fanId}/requests`)
+    // let key = myRef.push().key
+    // request.requestId = key
+    // myRef.child(`/${key}`).set(request)
+    // firebase.database().ref(`users/${userId}/venue/requests/${key}`).set(true, error => {
+    //   if (!error) {
+    //     console.log('Its added to firebase')
+    //   }
+    // })
+    axios.get('http://localhost:8080/login')
+      .then(res => console.log('RES ---> ', res))
+      .catch(err => console.log('Err ---> ', err))
   }
 
   render() {
