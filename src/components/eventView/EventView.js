@@ -89,10 +89,19 @@ class EventView extends React.Component {
   }
 
   render() {
-    let {userInfo, event = {}} = this.props
+    let {userInfo, 
+        event = {},
+        event: {
+          completed = {}
+        } = {}} = this.props
     let tip = parseFloat(event.tipAmount).toFixed(2)
     let time = this.timeFormatter()
-    let eventName = event.placeName ? event.placeName.charAt(0) : ''
+    let eventName = event.placeName ? event.placeName.charAt(0) : '';
+    let completedEvents = Object.keys(completed).length;
+    let tipsEarned = Object.values(completed).reduce((acc, event) => {
+        acc += event.tip || event.tipAmount;
+        return acc;
+    }, 0)
     return (
       <div className="EventView">
         <Header imageUrl={userInfo.imageUrl} iconClick={this.profileImgClicked} isActive={true} onClick={() => {}}/>
@@ -117,8 +126,8 @@ class EventView extends React.Component {
         <p>${tip}</p>
        </div>
        <div className="EventView__request-container">
-        2 Song Request Completed
-        <p>$3.00 Earned</p>
+        {completedEvents} Song Request Completed
+        <p>${tipsEarned.toFixed(2)} Earned</p>
        </div>
        <div className="EventView--end-action">
         <Button variant="contained" color="primary" classes={{root: 'EventView__end'}} onClick={this.handleClose}>End</Button>

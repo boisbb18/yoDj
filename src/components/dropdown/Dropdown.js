@@ -7,8 +7,8 @@ class Dropdown extends React.Component {
         this.dropdownRef = React.createRef()
         this.state = {
             listOpen: false,
-            selected: '',
-            headerTitle: 'Type'
+            selected: 'Venue',
+            headerTitle: 'Venue'
         }
         this.toggleList = this.toggleList.bind(this)
         this.clickOutside = this.clickOutside.bind(this)

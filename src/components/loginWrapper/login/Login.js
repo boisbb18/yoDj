@@ -105,7 +105,8 @@ class Login extends React.Component {
     e.preventDefault()
     let {codeSent, phone, value} = this.state
     let appVerifier = window.recaptchaVerifier
-    let phoneNumber = `+1${phone}`
+    phone = normalize(phone)
+    let phoneNumber = `+1${phone}`;
 
     if (value.length !== 14 && !codeSent) {
       this.setState({
@@ -122,7 +123,6 @@ class Login extends React.Component {
       })
       return
     }
-
     if (!codeSent) {
       fire.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
         .then(result => {
@@ -134,8 +134,9 @@ class Login extends React.Component {
           this.phoneRef.style.display = 'none'
           window.confirmationResult = result
         })
-        .catch(() => {
+        .catch((e) => {
           this.phoneRef.style.display = 'block'
+          console.log('Error Block --> ', e)
           this.setState({
             errorMessage: 'Invalid phone number!',
             isError: true

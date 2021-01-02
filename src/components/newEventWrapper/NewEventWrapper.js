@@ -22,7 +22,7 @@ class NewEventWrapper extends React.Component {
     this.state = {
       placeName: '',
       location: '',
-      type: '',
+      type: 'Venue',
       tipText: '',
       tipAmount: '',
       numberSubtracted: false,

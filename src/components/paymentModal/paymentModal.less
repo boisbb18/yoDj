@@ -4,20 +4,18 @@
   opacity: 0;
   left: 0;
   width: 100%;
-  // margin-top: 60%;
   bottom: 0;
   pointer-events: none;
   background: transparent;
   display: flex;
   flex-direction: column;
-  // align-items: center;
   transition: all .25s ease-in-out;
   min-height: 0;
   
   &__main-container {
     background: black;
     max-width: 450px;
-    height: 45%;
+    // height: 45%;
     margin-top: 20%;
   }
   
@@ -28,9 +26,6 @@
   }
 
   &--visible {
-    // margin-top: 50%;
-    // margin-top: 20%;
-    // height: 55%;
     height: 100%;
     opacity:  1;
     z-index: 2;
@@ -72,9 +67,10 @@
 
   &--applepay {
     background: transparent no-repeat center center;
-    background-image: url("../../images/applePayLogo.png");
+    background-image: url("../../images/applePayCard.png");
     width: 100px;
-    height: 80px;
+    height: 75px;
+    margin: auto 0;
     border-radius: 6px;
     margin-right: 4em;
     background-size: 100% 100%;
@@ -118,7 +114,7 @@ and (orientation: portrait) {
     &__main-container {
       margin: 40%;
       width: 100%;
-      height: 50%;
+      // height: 50%;
     }
 
     &__container {
@@ -142,7 +138,7 @@ and (orientation: portrait) {
 
     &__main-container {
       margin: 40%;
-      width: 100%;
+      width: 90%;
       height: 50%;
     }
 
@@ -169,8 +165,8 @@ and (-webkit-min-device-pixel-ratio: 3) {
     // }
     &__main-container {
       margin: 40%;
-      width: 100%;
-      height: 45%;;
+      width: 90%;
+      height: 50%;;
     }
 
     &--title {

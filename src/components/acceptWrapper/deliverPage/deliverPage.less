@@ -22,7 +22,8 @@
 }
 
 &--subtitle {
-    margin-left: 6em;
+    // margin-left: 6em;
+    margin: auto;
     font-size: 18px;
     font-weight: bold;
   }
@@ -31,6 +32,7 @@
     display: flex;
     align-items: center;
     padding: 25px;
+    margin: 0 auto;
   }
 
   &--song-icon {
@@ -154,6 +156,9 @@ and (orientation: portrait) {
   &--subtitle {
       margin-left: 4em;
   }
+  &__song-container {
+    margin: 0;
+  }
 }
 }
 
@@ -180,6 +185,9 @@ and (orientation: portrait) {
       height: 50px;
       width: 50px;
     }
+    &__song-container {
+      margin: 0;
+    }
 
   }
 }
@@ -192,6 +200,8 @@ and (-webkit-min-device-pixel-ratio: 3) {
   &--subtitle {
       margin-left: 5em;
   }
-
+  &__song-container {
+    margin: 0;
+  }
   }
 }
