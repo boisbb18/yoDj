@@ -387,8 +387,6 @@ class TippingPage extends React.Component {
                             <div className="TippingPage--input">
                                 <input
                                     type="text" inputMode="decimal" 
-                                    // type="text"
-                                    // inputMode="decimal"
                                     value={this.state.tipText}
                                     onChange={this.tipChange}
                                     className="TippingPage--tip-text"
@@ -432,7 +430,7 @@ class TippingPage extends React.Component {
                         </div>
                     </div>
                     <div className="TippingPage--submit-button">
-                        <Button variant="contained" color="primary" classes={{root: 'TippingPage-submit'}} onClick={this.submit}>
+                        <Button variant="contained" color="primary" classes={{root: 'TippingPage--submit'}} onClick={this.submit}>
                             Submit
                         </Button>
                     </div>
