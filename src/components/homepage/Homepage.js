@@ -161,7 +161,8 @@ class Homepage extends React.Component {
             <div className="Homepage--border" style={{boxShadow: boxShadow, backgroundColor: boxShadowColor}}/>
           </div>
           <div className="Homepage__tip-container">
-            <div className="Homepage--queue-title" onClick={this.openDeliverPage}>Queue</div>
+            <div className={`Homepage--queue-title${this.state.active && acceptedSongs.length > 0 
+              ? ' Homepage--started-title' : ''}`} onClick={this.openDeliverPage}>Queue</div>
             <div className="Homepage--queue-subtitle">
               {acceptedSongs.length} songs are in a queue
             </div>

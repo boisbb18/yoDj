@@ -129,7 +129,7 @@ class EventWrapper extends React.Component {
           </Button>
         </div>
         <div className={`EventWrapper__event${!active ? ' EventWrapper--disable' : ''}`}>
-          <h3 className={active ? 'EventWrapper--started' : ''} onClick={this.openEvent}>{active ? placeName : 'Event'}</h3>
+          <h3 className={active ? 'EventWrapper--started-title' : ''} onClick={this.openEvent}>{active ? placeName : 'Event'}</h3>
           <div className={`EventWrapper--icon${active ? ' EventWrapper--started' : ''}`}>{eventName}</div>
           <div className="EventWrapper--requests">
             {completed} Requests Completed
