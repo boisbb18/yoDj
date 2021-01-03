@@ -82,7 +82,7 @@ class ProfilePage extends React.Component {
         }
         return acc
       }, [])
-      console.log('CompletedEvents -----> ', completedEvents)
+
     }
     return (
       <div className="ProfilePage">
