@@ -11,7 +11,14 @@ const paths = {
   public: path.resolve(__dirname, 'public')
 }
 
-let entry = {index: './src/index.js'}
+let entry = {
+    index: './src/index.js',
+    'process.env.API_KEY': JSON.stringify(process.env.API_KEY || ''),
+    'process.env.AUTH_DOMAIN': JSON.stringify(process.env.AUTH_DOMAIN || ''),
+    'process.env.DATA_URL': JSON.stringify(process.env.DATA_URL || ''),
+    'process.env.PROJECT_ID': JSON.stringify(process.env.PROJECT_ID || ''),
+    'process.env.SENDER_ID': JSON.stringify(process.env.SENDER_ID || '')
+  }
 const htmlWebpackPlugins = entry => (
   Object.keys(entry).map(chunk => (
     new HtmlWebPackPlugin({
@@ -27,7 +34,7 @@ const htmlWebpackPlugins = entry => (
 
 let plugins = [
   new webpack.DefinePlugin(entry),
-  new CleanWebpackPlugin(['build'], {root: paths.root}),
+  new CleanWebpackPlugin(['public/bundle.js'], {root: paths.public}),
   new CopyWebpackPlugin([paths.public], {ignore: ['index.html']}),
   ...htmlWebpackPlugins(entry),
   new webpack.HotModuleReplacementPlugin()

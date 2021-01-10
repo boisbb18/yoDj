@@ -108,7 +108,7 @@ class MainPage extends React.Component {
 
   componentWillUnmount() {
     firebase.database().ref('venues').off('value', this.eventsListener)
-  }  
+  }
 
   componentDidUpdate(prevProps, prevState) {
     let {location} = this.props
@@ -252,7 +252,7 @@ class MainPage extends React.Component {
       let endedEvents = snapshot.val()
       this.setState({
         endedEvents
-      })      
+      })
     })
   }
 
@@ -291,7 +291,7 @@ class MainPage extends React.Component {
         this.setState({
           fans
         }, () => {
-          const {event = {}, activities = [], requests = []} = this.state 
+          const {event = {}, activities = [], requests = []} = this.state
           if (activities.length === 0 && event.joiners) {
             this.updateActivities(event.joiners, event)
           }
@@ -418,7 +418,7 @@ class MainPage extends React.Component {
    else if (requestIds.indexOf(lastAdded) === -1) {
      requests.unshift({name: requestedUser.username, songRequest: true, id: lastAdded, song: requested[lastAdded].music, tipIntentId: requested[lastAdded].tipIntentId, payment_method: requested[lastAdded].payment_method, tip: requested[lastAdded].tipAmount, time: requested[lastAdded].time, img: requestedUser.imageUrl, fanId: songsArr[requestedArr.length - 1].user, phone: requestedUser.phone})
     }
-  
+
     this.setState({
       requests
     })
@@ -519,7 +519,7 @@ class MainPage extends React.Component {
         if (data) {
           if (data.userType && data.userType === 'Fan') {
             let userInfo = {
-              username: data.username, type: 'fan', phone: data.phone, 
+              username: data.username, type: 'fan', phone: data.phone,
               imageUrl: data.imageUrl, venue: data.venue, completed: data.completed,
               userId: data.userId, card: data.card, cardId: data.cardId, tip: data.tip}
             let joined = data.venue ? true : false
@@ -706,9 +706,9 @@ class MainPage extends React.Component {
   }
 
   render() {
-    let {userInfo, userId, event, 
-      newRequest, requests, isActive, 
-      allDjs, fanEvent, acceptedSongs, 
+    let {userInfo, userId, event,
+      newRequest, requests, isActive,
+      allDjs, fanEvent, acceptedSongs,
       isLogged, allEvents, endedEvents,
       spotifyToken} = this.state
 
@@ -801,8 +801,6 @@ class MainPage extends React.Component {
                     onMakeSpotifyToken={this.setSpotifyToken}
                   />)}
                 />
-              )} />
-
                 <Route path='/profile' render={props => (
                   <ProfilePage
                     userInfo={userInfo}
