@@ -1,13 +1,19 @@
 import firebase from 'firebase'
-  // Initialize Firebase
-  const config = {
-    apiKey: 'AIzaSyA1xa8SPVp8vZIS1JJ9o5Rw1sfV21ZEPIc',
-    authDomain: 'yodj-50333.firebaseapp.com',
-    databaseURL: 'https://yodj-50333.firebaseio.com',
-    projectId: 'yodj-50333',
-    storageBucket: '',
-    messagingSenderId: '621374281161'
-  }
+const apiKey = process.env.API_KEY
+const authDomain = process.env.AUTH_DOMAIN
+const databaseURL = process.env.DATA_URL
+const projectId = process.env.PROJECT_ID
+const senderId = process.env.SENDER_ID
+
+ const config = {
+   apiKey,
+   authDomain,
+   databaseURL,
+   projectId,
+   storageBucket: '',
+   messagingSenderId: senderId
+ }
+
  const fire = firebase.initializeApp(config)
  const facebookProvider = new firebase.auth.FacebookAuthProvider()
  const twitterProvider = new firebase.auth.TwitterAuthProvider()
